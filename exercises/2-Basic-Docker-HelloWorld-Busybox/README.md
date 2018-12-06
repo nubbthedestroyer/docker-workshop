@@ -4,7 +4,7 @@ Now that we have everything setup, it's time to get our hands dirty. In this sec
 
 To get started, let's run the following in our terminal:
 
-```
+```bash
 $ docker pull busybox
 ```
 
@@ -12,7 +12,7 @@ Note: Depending on how you've installed docker on your system, you might see a p
 
 The pull command fetches the busybox image from the Docker registry and saves it to our system. You can use the docker images command to see a list of all images on your system.
 
-```
+```bash
 $ docker images
 REPOSITORY              TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 busybox                 latest              c51f86c28340        4 weeks ago         1.109 MB
@@ -22,28 +22,28 @@ busybox                 latest              c51f86c28340        4 weeks ago     
 #### Docker Run
 Great! Let's now run a Docker container based on this image. To do that we are going to use the almighty docker run command.
 
-```
+```bash
 $ docker run busybox
 $
 ```
 
 Wait, nothing happened! Is that a bug? Well, no. Behind the scenes, a lot of stuff happened. When you call run, the Docker client finds the image (busybox in this case), loads up the container and then runs a command in that container. When we run docker run busybox, we didn't provide a command, so the container booted up, ran an empty command and then exited. Well, yeah - kind of a bummer. Let's try something more exciting.
 
-```
+```bash
 $ docker run busybox echo "hello from busybox"
 hello from busybox
 ```
 
 Nice - finally we see some output. In this case, the Docker client dutifully ran the echo command in our busybox container and then exited it. If you've noticed, all of that happened pretty quickly. Imagine booting up a virtual machine, running a command and then killing it. Now you know why they say containers are fast! Ok, now it's time to see the docker ps command. The docker ps command shows you all containers that are currently running.
 
-```
+```bash
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ```
 
 Since no containers are running, we see a blank line. Let's try a more useful variant: docker ps -a
 
-```
+```bash
 $ docker ps -a
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
 305297d7a235        busybox             "uptime"            11 minutes ago      Exited (0) 11 minutes ago                       distracted_goldstine
@@ -55,7 +55,7 @@ So what we see above is a list of all containers that we ran. Do notice that the
 
 You're probably wondering if there is a way to run more than just one command in a container. Let's try that now:
 
-```
+```bash
 $ docker run -it busybox sh
 / # ls
 bin   dev   etc   home  proc  root  sys   tmp   usr   var
@@ -71,7 +71,7 @@ That concludes a whirlwind tour of the mighty docker run command, which would mo
 
 Before we move ahead though, let's quickly talk about deleting containers. We saw above that we can still see remnants of the container even after we've exited by running docker ps -a. Throughout this tutorial, you'll run docker run multiple times and leaving stray containers will eat up disk space. Hence, as a rule of thumb, I clean up containers once I'm done with them. To do that, you can run the docker rm command. Just copy the container IDs from above and paste them alongside the command.
 
-```
+```bash
 $ docker rm 305297d7a235 ff0a5c3750b9
 305297d7a235
 ff0a5c3750b9
@@ -79,7 +79,7 @@ ff0a5c3750b9
 
 On deletion, you should see the IDs echoed back to you. If you have a bunch of containers to delete in one go, copy-pasting IDs can be tedious. In that case, you can simply run -
 
-```
+```bash
 $ docker rm $(docker ps -a -q -f status=exited)
 ```
 
@@ -87,7 +87,7 @@ This command deletes all containers that have a status of exited. In case you're
 
 In later versions of Docker, the docker container prune command can be used to achieve the same effect.
 
-```
+```bash
 $ docker container prune
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
