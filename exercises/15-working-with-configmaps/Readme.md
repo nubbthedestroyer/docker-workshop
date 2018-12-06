@@ -16,6 +16,3 @@ To see all your configmaps: `kubectl get configmaps`
 To read the value in the logger configmap: `kubectl get configmap/logger -o yaml`
 
 To edit the value, we can run `kubectl edit configmap/logger`
-
-### Understand how to call a configmap from a deployment
-
