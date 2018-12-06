@@ -6,7 +6,7 @@ Let's start by taking baby-steps. The first thing we're going to look at is how 
 
 Let's begin. The image that we are going to use is a single-page website that I've already created for the purpose of this demo and hosted on the registry - prakhar1989/static-site. We can download and run the image directly in one go using docker run. As noted above, the --rm flag automatically removes the container when it exits.
 
-```
+```bash
 $ docker run --rm prakhar1989/static-site
 ```
 
@@ -14,14 +14,14 @@ Since the image doesn't exist locally, the client will first fetch the image fro
 
 Well in this case, the client is not exposing any ports so we need to re-run the docker run command to publish ports. While we're at it, we should also find a way so that our terminal is not attached to the running container. This way, you can happily close your terminal and keep the container running. This is called detached mode.
 
-```
+```bash
 $ docker run -d -P --name static-site prakhar1989/static-site
 e61d12292d69556eabe2a44c16cbd54486b2527e2ce4f95438e504afb7b02810
 ```
 
 In the above command, -d will detach our terminal, -P will publish all exposed ports to random ports and finally --name corresponds to a name we want to give. Now we can see the ports by running the docker port [CONTAINER] command
 
-```
+```bash
 $ docker port static-site
 80/tcp -> 0.0.0.0:32769
 443/tcp -> 0.0.0.0:32768
@@ -33,14 +33,14 @@ You can open http://localhost:32769 in your browser.
 
 You can also specify a custom port to which the client will forward connections to the container.
 
-```
+```bash
 $ docker run -p 8888:80 prakhar1989/static-site
 Nginx is running...
 ```
 
 To stop a detached container, run docker stop by giving the container ID. In this case, we can use the name static-site we used to start the container.
 
-```
+```bash
 $ docker stop static-site
 static-site
 ```
@@ -52,7 +52,7 @@ We've looked at images before, but in this section we'll dive deeper into what D
 
 Docker images are the basis of containers. In the previous example, we pulled the Busybox image from the registry and asked the Docker client to run a container based on that image. To see the list of images that are available locally, use the docker images command.
 
-```
+```bash
 $ docker images
 REPOSITORY                      TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 prakhar1989/catnip              latest              c7ffb5626a50        2 hours ago         697.9 MB
@@ -68,7 +68,7 @@ The above gives a list of images that I've pulled from the registry, along with 
 
 For simplicity, you can think of an image akin to a git repository - images can be committed with changes and have multiple versions. If you don't provide a specific version number, the client defaults to latest. For example, you can pull a specific version of ubuntu image
 
-```
+```bash
 $ docker pull ubuntu:12.04
 ```
 
