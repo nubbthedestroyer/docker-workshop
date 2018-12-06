@@ -82,7 +82,7 @@ do this:
 ```bash
 mkdir -p workshop
 cd workshop
-git clone https://github.com/nubbthedestroyer/vmware-aws-workshop .
+git clone https://github.com/nubbthedestroyer/docker-workshop .
 
 ```
 
