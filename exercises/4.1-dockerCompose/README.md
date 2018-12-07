@@ -83,7 +83,7 @@ Now we can run `docker-compose`. Navigate to the food trucks directory and run `
 
 ```bash
 $ docker-compose up
-Creating network "foodtrucks_default" with the default driver
+Creating network "41-dockercompose_default" with the default driver
 Creating foodtrucks_es_1
 Creating foodtrucks_web_1
 Attaching to foodtrucks_es_1, foodtrucks_web_1
@@ -138,14 +138,14 @@ Stopping foodtrucks_web_1 ... done
 Stopping es               ... done
 Removing foodtrucks_web_1 ... done
 Removing es               ... done
-Removing network foodtrucks_default
-Removing volume foodtrucks_esdata1
+Removing network 41-dockercompose_default
+Removing volume 41-dockercompose_default
 ```
 
 While we're are at it, we'll also remove the `foodtrucks` network that we created last time.
 
 ```bash
-$ docker network rm foodtrucks-net
+$ docker network rm 41-dockercompose_default
 $ docker network ls
 NETWORK ID          NAME                 DRIVER              SCOPE
 c2c695315b3a        bridge               bridge              local
@@ -170,11 +170,11 @@ So far, so good. Time to see if any networks were created.
 
 ```bash
 $ docker network ls
-NETWORK ID          NAME                 DRIVER
-c2c695315b3a        bridge               bridge              local
-f3b80f381ed3        foodtrucks_default   bridge              local
-a875bec5d6fd        host                 host                local
-ead0e804a67b        none                 null                local
+NETWORK ID          NAME                       DRIVER
+c2c695315b3a        bridge                     bridge              local
+f3b80f381ed3        41-dockercompose_default   bridge              local
+a875bec5d6fd        host                       host                local
+ead0e804a67b        none                       null                local
 ```
 
 You can see that compose went ahead and created a new network called `foodtrucks_default` and attached both the new services in that network so that each of these are discoverable to the other. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by them at a hostname identical to the container name. 
@@ -185,10 +185,10 @@ CONTAINER ID        IMAGE                                                 COMMAN
 8c6bb7e818ec        docker.elastic.co/elasticsearch/elasticsearch:6.3.2   "/usr/local/bin/dock…"   About a minute ago   Up About a minute   0.0.0.0:9200->9200/tcp, 9300/tcp   es
 7640cec7feb7        prakhar1989/foodtrucks-web                            "python app.py"          About a minute ago   Up About a minute   0.0.0.0:5000->5000/tcp             foodtrucks_web_1
 
-$ docker network inspect foodtrucks_default
+$ docker network inspect 41-dockercompose_default
 [
     {
-        "Name": "foodtrucks_default",
+        "Name": "41-dockercompose_default",
         "Id": "f3b80f381ed3e03b3d5e605e42c4a576e32d38ba24399e963d7dad848b3b4fe7",
         "Created": "2018-07-30T03:36:06.0384826Z",
         "Scope": "local",
