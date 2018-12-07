@@ -59,7 +59,7 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./flask-app:/opt/flask-app
+      - .:/opt/flask-app
 volumes:
     esdata1:
       driver: local
