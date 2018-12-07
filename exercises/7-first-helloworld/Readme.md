@@ -63,7 +63,7 @@ To do this, we can expose the pod to the public internet using the kubectl expos
 
 The --type=LoadBalancer flag exposes the deployment outside of the cluster. On cloud providers that support load balancers, an external IP address would be provisioned to access the service.
 
-kubectl expose deployment hw --type=LoadBalancer
+`kubectl expose deployment hw --type=LoadBalancer`
 
 To do this in the minikube environment, the nodeport or loadbalancer type makes the service accessible through the minikube service command.
 
