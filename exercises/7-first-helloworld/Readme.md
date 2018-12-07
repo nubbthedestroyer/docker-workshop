@@ -58,15 +58,15 @@ You'll notice that in the `kubectl get all` command, the service has a port mapp
 
 This is because by default, the pod is only accessible by its internal IP address within the cluster. To make the helloworld container accessible from outside the Kubernetes virtual network, you have to expose the pod as a Kubernetes service.
 
-To do this, we can expose the pod to the public internet using the kubectl expose command 
-`kubectl expose deployment hello-minikube --type=NodePort`
+To do this, we can expose the pod to the public internet using the kubectl expose command
+`kubectl expose deployment hw --type=NodePort`
 
 The --type=LoadBalancer flag exposes the deployment outside of the cluster. On cloud providers that support load balancers, an external IP address would be provisioned to access the service.
 
-kubectl expose deployment hello-minikube --type=NodePort
+kubectl expose deployment hw --type=LoadBalancer
 
 To do this in the minikube environment, the nodeport or loadbalancer type makes the service accessible through the minikube service command.
 
-`minikube service helloworld`
+`minikube service hw`
 
 This will open your web browser to your application that is running in Kubernetes!
