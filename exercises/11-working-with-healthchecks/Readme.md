@@ -117,7 +117,7 @@ spec:
 
 ```
 
-We run this yaml the same as we had done before: `kubectl create -f helloworld-deployment-with-probes`
+We run this yaml the same as we had done before: `kubectl create -f helloworld-with-probes.yaml`
 
 
 ### Simulate a failing deployment that fails a readiness probe
