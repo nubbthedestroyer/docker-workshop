@@ -366,6 +366,8 @@ $ curl 0.0.0.0:5000/hello
 hello world
 ```
 
+*** Make sure you don't have the -I argument here or you will not see the message, just headers.
+
 Wohoo! We get a valid response! Try playing around by making more changes in the app. 
 
 That concludes our tour of Docker Compose. With Docker Compose, you can also pause your services, run a one-off command on a container and even scale the number of containers. I also recommend you checkout a few other [use-cases](https://docs.docker.com/compose/overview/#common-use-cases) of Docker compose. Hopefully I was able to show you how easy it is to manage multi-container environments with Compose. In the final section, we are going to deploy our app to AWS!
