@@ -76,7 +76,7 @@ status:
 
 When working with Kubernetes, you should get familiar with these YAML files.
 
-The Kubernetes service also comprises YAMLs. Let's take a look at that by running `kubectl get service helloworld-service -o yaml`
+The Kubernetes service also comprises YAMLs. Let's take a look at that by running `kubectl get service hw -o yaml`
 
 ```
 apiVersion: v1
