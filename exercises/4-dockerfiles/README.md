@@ -1,7 +1,7 @@
 ## Dockerfile
 A Dockerfile is a simple text-file that contains a list of commands that the Docker client calls while creating an image. It's a simple way to automate the image creation process. The best part is that the commands you write in a Dockerfile are almost identical to their equivalent Linux commands. This means you don't really have to learn new syntax to create your own dockerfiles.
 
-The application directory does contain a Dockerfile but since we're doing this for the first time, we'll create one from scratch. To start, create a new blank file in our favorite text-editor and save it in the same folder as the flask app by the name of Dockerfile.
+So first we'll create a Dockerfile. To start, create a new blank file in our favorite text-editor and save it in the same folder as the flask app (app.py file in the 4-dockerfiles folder) by the name of Dockerfile.
 
 We start with specifying our base image. Use the FROM keyword to do that -
 
