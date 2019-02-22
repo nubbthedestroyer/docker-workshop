@@ -54,17 +54,8 @@ You should have received credentials from your instructor in the form of:
 1. Account ID
 1. User Name
 1. Password
-1. aws_access_key_id
-1. aws_secret_access_key
 
-We need #4 and #5 to setup the creds chain.  Run the following command in your IDE
-
-```bash
-aws configure
-```
-
-You'll be asked for the credentials.  Supply them as prompted.  For the region, enter "us-east-1"
-Once that completes, run the following commands to test to ensure that you have AWS API 
+Run the following commands to test to ensure that you have AWS API 
 access and your credentials chain is working.
 
 ```bash
