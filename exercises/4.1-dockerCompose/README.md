@@ -79,7 +79,7 @@ $ docker stop $(docker ps -q)
 2a1b77e066e6
 ```
 
-Now we can run `docker-compose`. Navigate to the food trucks directory and run `docker-compose up`.
+Now we can run `docker-compose`. Go ahead and run `docker-compose up`.
 
 ```bash
 $ docker-compose up
