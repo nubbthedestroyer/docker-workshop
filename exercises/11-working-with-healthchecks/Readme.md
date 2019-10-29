@@ -8,6 +8,8 @@
 ### Add HTTP health check to the helloworld deployment
 
 We will take our existing hellworld deployment, and add a readiness and liveness probe healthchecks.
+> Note: For kubernetes v1.16 and above `apps/v1beta1` has been deprecated, please use `apps/v1` instead
+> Documentation for deprecated APIs in v1.16 [here](https://kubernetes.io/blog/2019/07/18/api-deprecations-in-1-16/)
 
 ```
 apiVersion: apps/v1beta1
